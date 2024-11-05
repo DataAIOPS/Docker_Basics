@@ -1,0 +1,54 @@
+## Verify Docker installation
+docker --version
+
+## To pull image from dockerhub
+docker pull <image>
+
+## To run container based on image
+docker run <image>
+
+## List all running container
+docker ps
+
+## stop container
+docker stop <container_id>
+
+## To remove a stopped container 
+docker rm <container_id>
+
+# To remove image
+docker rmi <image_id>
+
+### First Container
+cd Desktop
+mkdir docker
+cd docker
+mkdir myapp
+create file name app.py with below details
+_____________________
+import time
+
+for i in range(20):
+    print("Hello Docker")
+    time.sleep(2)
+______________________
+
+create file name Dockerfile with below details
+_________________
+FROM python:3.9
+
+WORKDIR /app
+
+COPY . /app
+
+CMD ["python","app.py"]
+_________________
+
+Build an image => docker build -t dataaiopshub/my_image:V1 .
+Check if image is built: docker images
+To run image insider container=> docker run dataaiopshub/my_image:V1
+open new terminal => docker ps
+Verify if image is killed after 40 sec
+Push image to dockerhub: docker push dataaiopshub/my_image:V1
+
+
