@@ -52,3 +52,9 @@ Verify if image is killed after 40 sec
 Push image to dockerhub: docker push dataaiopshub/my_image:V1
 
 
+For docker compose:
+docker compose up
+docker compose build
+docker compose push
+
+
