@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    image: dataaiopshub/redis:latest
+    ports:
+      - "5000:5000"
+    depends_on:
+      - redis
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
