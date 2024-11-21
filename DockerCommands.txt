@@ -1,0 +1,33 @@
+#To Build a docker image
+docker build -t <<name_of_image>> .
+
+# Check if image is created or not
+docker images
+
+# To run a docker image inside a container
+docker run -p yourport:dockerport -it <<image_name>>
+
+# To run a docker image inside a container in detached mode
+docker run -p yourport:dockerport -itd <<image_name>>
+
+# To run container with specific name in detached mode
+docker run -p yourport:dockerport --name my_container -itd <<image_name>>
+
+# To check running containers
+docker ps
+
+# To stop the container  with name or container_id
+docker stop <<container_id/name>>
+
+# verify if containet is stopped
+docker ps
+
+# delete images (if image is used by container then first stop the container and delete image) (use -f to forcefully delete an image)
+docker image rm <<image_name>>
+
+# how to run and login to container (by default you will login to WORKDIR)
+docker run -p yourport:dockerport -it <<image_name>> /bin/bash
+
+# how to loing to container which is already running
+docker ps  => this command will give you conainer name or container_id
+docker exec -it <<conainer_nmae/container_id>> /bin/bash
